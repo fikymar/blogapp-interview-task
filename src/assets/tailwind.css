@@ -2,15 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+	--primaryColor: #0ea5e9;
+	--textColor:rgb(37, 33, 33);
+}
+
 body {
 	box-sizing: border-box;
 	overflow-x: hidden;
-	color:rgb(37, 33, 33);
+	color:var(--textColor);
 }
 
-:root {
-	--primary: #0ea5e9;
-}
+
 
 #app {
 	font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -29,5 +32,10 @@ body {
   }
   
   nav a.router-link-exact-active {
-	color: var(--primary)
+	color: var(--primaryColor)
+  }
+
+  h1 {
+	font-weight: 700;
+	text-transform: uppercase;
   }
