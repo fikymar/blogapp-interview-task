@@ -125,7 +125,14 @@ export default {
         date: new Date(),
       });
       console.log(blogsStore.blogPosts);
-      newPost.value = { title: "", body: "", img: "", author: "" };
+      newPost.value = {
+        title: "",
+        body: "",
+        img: "",
+        author: "",
+        id: "",
+        date: "",
+      };
     };
 
     return { newPost, handleSubmit };

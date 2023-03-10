@@ -1,24 +1,10 @@
 # blogapp
 
-## Project setup
-```
-npm install
-```
+Interview task made with vue.js, vue-router, pinia, tailwind
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## Functionalities:
+- Create new blog post
+- Edit blog post
+- Delete blog post
+- List of all blog posts
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
