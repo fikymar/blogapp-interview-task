@@ -1,5 +1,6 @@
 <template>
-  <div class="mx-5">
+  <div class="mx-5 relative">
+    <Toast />
     <Header />
 
     <slot />
@@ -8,10 +9,13 @@
 
 <script>
 import Header from "./Header.vue";
+import Toast from "../Toast.vue";
+
 export default {
   name: ["Layout"],
   components: {
     Header,
+    Toast,
   },
 };
 </script>

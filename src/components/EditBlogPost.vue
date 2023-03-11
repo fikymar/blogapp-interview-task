@@ -6,7 +6,9 @@
       >
         <div class="max-w-md mx-auto">
           <div>
-            <h1 class="text-2xl font-semibold">Create new blog post</h1>
+            <h1 class="text-2xl font-semibold">
+              Edit blog post id {{ blog.id }}
+            </h1>
           </div>
           <div class="divide-y divide-gray-200">
             <div

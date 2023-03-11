@@ -1,7 +1,9 @@
 <template>
   <main>
-    <h1 class="text-2xl">Blog list</h1>
-    <div class="flex flex-wrap gap-5 justify-center">
+    <h1 class="text-3xl font-bold uppercase text-center mb-5">Blog list</h1>
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 justify-center"
+    >
       <div v-for="blog in blogsStore.blogPosts" :key="blog.id">
         <BlogPreview :blog="blog" />
       </div>
@@ -11,6 +13,7 @@
 
 <script>
 import { useBlogsStore } from "@/store/BlogPostStore";
+import { useMessageStore } from "@/store/MessageStore";
 import BlogPreview from "./BlogPreview.vue";
 export default {
   name: "BlogList",
@@ -18,8 +21,9 @@ export default {
   components: { BlogPreview },
   setup() {
     const blogsStore = useBlogsStore();
+    const messageStore = useMessageStore();
 
-    return { blogsStore };
+    return { blogsStore, messageStore };
   },
 };
 </script>

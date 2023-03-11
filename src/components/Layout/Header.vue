@@ -1,11 +1,11 @@
 <template>
   <div>
-    <nav>
+    <nav class="pt-5 flex justify-end gap-5">
       <router-link to="/">Home</router-link> |
       <router-link :to="{ name: 'newpost' }">Create new post</router-link>
     </nav>
     <!-- breadcrumbs -->
-    <router-link to="{$router.params}">{{ $route }}</router-link>
+    <router-link to="">{{ $route }}</router-link>
   </div>
 </template>
 
