@@ -4,7 +4,7 @@
     <div
       class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-rows-auto xl:grid-cols-4 gap-5 items-stretch"
     >
-      <div v-for="blog in blogsStore.blogPosts" :key="blog.id">
+      <div v-for="blog in blogPosts" :key="blog.id">
         <BlogPreview :blog="blog" />
       </div>
     </div>
@@ -15,6 +15,7 @@
 import { useBlogsStore } from "@/store/BlogPostStore";
 import { useMessageStore } from "@/store/MessageStore";
 import BlogPreview from "./BlogPreview.vue";
+import { storeToRefs } from "pinia";
 export default {
   name: "BlogList",
   props: ["blog"],
@@ -22,8 +23,9 @@ export default {
   setup() {
     const blogsStore = useBlogsStore();
     const messageStore = useMessageStore();
+    const { blogPosts } = storeToRefs(blogsStore);
 
-    return { blogsStore, messageStore };
+    return { blogPosts, messageStore };
   },
 };
 </script>

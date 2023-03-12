@@ -27,7 +27,7 @@ const routes = [
   {
     path: "/:catchAll(.*)",
     name: "NotFound",
-    component: () => import("../views/blogs/NotFound.vue"),
+    component: () => import("../views/NotFound.vue"),
   },
 ];
 
