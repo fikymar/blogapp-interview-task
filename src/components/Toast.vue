@@ -2,11 +2,11 @@
   <div
     v-if="messageStore.msg"
     class="fixed top-5 left-5 right-5 z-100 max-w-screen sm:max-w-xs text-sm text-zinc-100 rounded-md shadow-lg mb-3"
-    :class="messageStore.color"
+    :class="color"
     role="alert"
   >
     <div class="flex px-4 items-center justify-between gap-5">
-      <p class="py-4">{{ messageStore.msg }}</p>
+      <p class="py-4">{{ msg }}</p>
 
       <button
         @click="deleteMessage"
@@ -34,18 +34,20 @@
 
 <script>
 import { useMessageStore } from "@/store/MessageStore";
+import { storeToRefs } from "pinia";
 
 export default {
   name: "Toast",
 
   setup() {
     const messageStore = useMessageStore();
+    const { msg, color } = storeToRefs(messageStore);
 
     const deleteMessage = () => {
       messageStore.clearAlertMessage();
     };
 
-    return { messageStore, deleteMessage };
+    return { messageStore, deleteMessage, msg, color };
   },
 };
 </script>

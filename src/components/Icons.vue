@@ -69,7 +69,7 @@ export default {
       );
     };
 
-    return { blogsStore, deleteCurrentPost };
+    return { deleteCurrentPost };
   },
 };
 </script>
