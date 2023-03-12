@@ -13,7 +13,6 @@
 
 <script>
 import { useBlogsStore } from "@/store/BlogPostStore";
-import { useMessageStore } from "@/store/MessageStore";
 import BlogPreview from "./BlogPreview.vue";
 import { storeToRefs } from "pinia";
 export default {
@@ -22,10 +21,10 @@ export default {
   components: { BlogPreview },
   setup() {
     const blogsStore = useBlogsStore();
-    const messageStore = useMessageStore();
+
     const { blogPosts } = storeToRefs(blogsStore);
 
-    return { blogPosts, messageStore };
+    return { blogPosts };
   },
 };
 </script>
