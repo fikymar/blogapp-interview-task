@@ -25,6 +25,12 @@ const routes = [
     props: true,
   },
   {
+    path: "/blogs",
+    name: "AllBlogList",
+    component: () => import("../views/blogs/Index.vue"),
+    props: true,
+  },
+  {
     path: "/:catchAll(.*)",
     name: "NotFound",
     component: () => import("../views/NotFound.vue"),

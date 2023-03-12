@@ -19,7 +19,7 @@
           {{ blog.title }}
         </h2>
         <p
-          class="line-clamp-3 text-left font-light group-hover:text-zinc-500 transition"
+          class="line-clamp-3 text-left font-light text-zinc-500 group-hover:text-zinc-600 transition"
         >
           {{ blog.body }}
         </p>

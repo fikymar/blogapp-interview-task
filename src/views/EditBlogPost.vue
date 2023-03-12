@@ -13,7 +13,7 @@
             id="id"
             :name="post.author"
             type="text"
-            class="peer placeholder-transparent h-10 w-full border-b-2 border-zinc-800 text-gray-900 focus:outline-none focus:border-rose-600"
+            class="peer placeholder-transparent h-10 w-full border-b-2 border-zinc-500 text-gray-900 focus:outline-none focus:border-rose-600"
             v-model="post.id"
           />
 
@@ -29,7 +29,7 @@
             id="id"
             :name="date"
             type="text"
-            class="peer placeholder-transparent h-10 w-full border-b-2 border-zinc-800 text-gray-900 focus:outline-none focus:border-rose-600"
+            class="peer placeholder-transparent h-10 w-full border-b-2 border-zinc-500 text-gray-900 focus:outline-none focus:border-rose-600"
             v-model="date"
           />
 
@@ -46,7 +46,7 @@
             id="author"
             :name="post.author"
             type="text"
-            class="peer placeholder-transparent h-10 w-full border-b-2 border-zinc-800 text-gray-900 focus:outline-none focus:border-rose-600"
+            class="peer placeholder-transparent h-10 w-full border-b-2 border-zinc-500 text-gray-900 focus:outline-none focus:border-rose-600"
             placeholder="Author"
             v-model="post.author"
           />
@@ -64,7 +64,7 @@
             id="title"
             :name="post.title"
             type="text"
-            class="peer placeholder-transparent h-10 w-full border-b-2 border-zinc-800 text-gray-900 focus:outline-none focus:border-rose-600"
+            class="peer placeholder-transparent h-10 w-full border-b-2 border-zinc-500 text-gray-900 focus:outline-none focus:border-rose-600"
             placeholder="Title"
             v-model="post.title"
           />
@@ -81,7 +81,7 @@
             id="text"
             :name="post.body"
             type="text"
-            class="peer placeholder-transparent w-full border-b-2 border-zinc-800 text-gray-900 focus:outline-none focus:border-rose-600"
+            class="peer placeholder-transparent w-full border-b-2 border-zinc-500 text-gray-900 focus:outline-none focus:border-rose-600"
             placeholder="Text"
             rows="8"
             v-model="post.body"
@@ -99,7 +99,7 @@
             id="img"
             :name="post.img"
             type="text"
-            class="peer placeholder-transparent h-10 w-full border-b-2 border-zinc-800 text-gray-900 focus:outline-none focus:border-rose-600"
+            class="peer placeholder-transparent h-10 w-full border-b-2 border-zinc-500 text-gray-900 focus:outline-none focus:border-rose-600"
             placeholder="Image url"
             v-model="post.img"
           />
@@ -112,7 +112,7 @@
         </div>
 
         <button
-          class="bg-green-600 text-white rounded-md px-4 py-2 self-center"
+          class="bg-lime-600 border-2 border-lime-600 hover:bg-lime-500 hover:text-zinc-600 hover:border-zinc-600 text-white rounded-md px-4 py-2 self-center uppercase mr-4 transition"
           type="submit"
         >
           Update Post
@@ -146,7 +146,7 @@ export default {
       messageStore.replaceAlertMessage(
         `Post id "${post.id}" has been changed 
         `,
-        "bg-green-600"
+        "bg-lime-600"
       );
 
       console.log(blogsStore.blogPosts);

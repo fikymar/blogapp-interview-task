@@ -14,7 +14,7 @@
             id="author"
             :name="newPost.author"
             type="text"
-            class="peer placeholder-transparent h-10 w-full border-b-2 border-zinc-800 text-gray-900 focus:outline-none focus:borer-rose-600"
+            class="peer placeholder-transparent h-10 w-full border-b-2 border-zinc-500 text-gray-900 focus:outline-none focus:border-rose-600"
             placeholder="Your name(author)"
             v-model="newPost.author"
           />
@@ -32,7 +32,7 @@
             id="title"
             :name="newPost.title"
             type="text"
-            class="peer placeholder-transparent h-10 w-full border-b-2 border-zinc-800 text-gray-900 focus:outline-none focus:borer-rose-600"
+            class="peer placeholder-transparent h-10 w-full border-b-2 border-zinc-500 text-gray-900 focus:outline-none focus:border-rose-600"
             placeholder="Title"
             v-model="newPost.title"
           />
@@ -49,7 +49,7 @@
             id="text"
             :name="newPost.body"
             type="text"
-            class="peer placeholder-transparent w-full border-b-2 border-zinc-800 text-gray-900 focus:outline-none focus:borer-rose-600"
+            class="peer placeholder-transparent w-full border-b-2 border-zinc-500 text-gray-900 focus:outline-none focus:border-rose-600"
             placeholder="Text"
             rows="5"
             v-model="newPost.body"
@@ -67,7 +67,7 @@
             id="img"
             :name="newPost.img"
             type="text"
-            class="peer placeholder-transparent h-10 w-full border-b-2 border-zinc-800 text-gray-900 focus:outline-none focus:borer-rose-600"
+            class="peer placeholder-transparent h-10 w-full border-b-2 border-zinc-500 text-gray-900 focus:outline-none focus:border-rose-600"
             placeholder="Image url"
             v-model="newPost.img"
           />
@@ -80,7 +80,7 @@
         </div>
 
         <button
-          class="bg-lime-600 text-white rounded-md px-4 py-2 self-center uppercase"
+          class="bg-lime-600 border-2 border-lime-600 hover:bg-lime-500 hover:text-zinc-600 hover:border-zinc-600 text-white rounded-md px-4 py-2 self-center uppercase mr-4 transition"
           type="submit"
           :class="{ 'animate-pulse bg-zinc-500': loading }"
         >
@@ -139,7 +139,7 @@ export default {
             ? newPost.value.title.substring(0, 14) + "..."
             : newPost.value.title
         }" was succesfully upload to store`,
-        "bg-green-600"
+        "bg-lime-600"
       );
       newPost.value = {
         title: "",
