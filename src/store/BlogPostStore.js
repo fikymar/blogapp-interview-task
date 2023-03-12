@@ -9,6 +9,7 @@ export const useBlogsStore = defineStore("blogsStore", {
         id: 1,
         author: "John Smith",
         body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae adipisci consequuntur tenetur nesciunt quam aliquid. Aliquam nobis dolores voluptatum possimus?",
+        date: new Date(),
       },
       {
         img: "https://source.unsplash.com/random/576x384/?css",
@@ -40,6 +41,11 @@ export const useBlogsStore = defineStore("blogsStore", {
       this.blogPosts = this.blogPosts.filter((post) => {
         return post.id !== id;
       });
+    },
+    editCurrentPost(post) {
+      return (this.blogPosts = this.blogPosts.map((blog) =>
+        blog.id !== post.id ? blog : post
+      ));
     },
   },
 });

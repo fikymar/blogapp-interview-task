@@ -10,8 +10,13 @@ const routes = [
   {
     path: "/newpost",
     name: "newpost",
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/CreateBlogPost.vue"),
+    component: () => import("../views/CreateBlogPost.vue"),
+  },
+  {
+    path: "/edit:id",
+    name: "EditBlogPost",
+    component: () => import("../views/EditBlogPost.vue"),
+    props: true,
   },
   {
     path: "/blogs/:id",

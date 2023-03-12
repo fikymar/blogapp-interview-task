@@ -1,95 +1,91 @@
 <template>
-  <form @submit.prevent="handleSubmit">
-    <div class="relative py-3 w-full md:max-w-xl mx-auto">
+  <form @submit.prevent="handleSubmit" class="w-full sm:max-w-md mx-auto">
+    <div>
+      <h1 class="text-2xl font-semibold text-center">Create new blog post</h1>
+    </div>
+    <div class="divide-y divide-gray-200">
       <div
-        class="relative px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-20"
+        class="flex flex-col py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7"
       >
-        <div class="max-w-md mx-auto">
-          <div>
-            <h1 class="text-2xl font-semibold">Create new blog post</h1>
-          </div>
-          <div class="divide-y divide-gray-200">
-            <div
-              class="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7"
-            >
-              <div class="relative">
-                <input
-                  autocomplete="off"
-                  id="author"
-                  :name="newPost.author"
-                  type="text"
-                  class="peer placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600"
-                  placeholder="Your name(author)"
-                  v-model="newPost.author"
-                />
+        <div class="relative">
+          <input
+            autocomplete="off"
+            maxlength="20"
+            id="author"
+            :name="newPost.author"
+            type="text"
+            class="peer placeholder-transparent h-10 w-full border-b-2 border-zinc-800 text-gray-900 focus:outline-none focus:borer-rose-600"
+            placeholder="Your name(author)"
+            v-model="newPost.author"
+          />
 
-                <label
-                  for="author"
-                  class="absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm"
-                  >Your name(author)</label
-                >
-              </div>
-              <div class="relative">
-                <input
-                  autocomplete="off"
-                  id="title"
-                  :name="newPost.title"
-                  type="text"
-                  class="peer placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600"
-                  placeholder="Title"
-                  v-model="newPost.title"
-                />
-                <label
-                  for="title"
-                  class="absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm"
-                  >Title</label
-                >
-              </div>
-              <div class="relative">
-                <textarea
-                  autocomplete="off"
-                  id="text"
-                  :name="newPost.body"
-                  type="text"
-                  class="peer placeholder-transparent w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600"
-                  placeholder="Text"
-                  rows="5"
-                  v-model="newPost.body"
-                />
-                <label
-                  for="text"
-                  class="absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm"
-                >
-                  Text</label
-                >
-              </div>
-              <div class="relative">
-                <input
-                  autocomplete="off"
-                  id="img"
-                  :name="newPost.img"
-                  type="text"
-                  class="peer placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600"
-                  placeholder="Image url"
-                  v-model="newPost.img"
-                />
-                <label
-                  for="img"
-                  class="absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm"
-                >
-                  Image url</label
-                >
-              </div>
-
-              <button
-                class="bg-green-600 text-white rounded-md px-2 py-1"
-                type="submit"
-              >
-                Submit
-              </button>
-            </div>
-          </div>
+          <label
+            for="author"
+            class="absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm"
+            >Your name(author)</label
+          >
         </div>
+        <div class="relative">
+          <input
+            autocomplete="off"
+            maxlength="80"
+            id="title"
+            :name="newPost.title"
+            type="text"
+            class="peer placeholder-transparent h-10 w-full border-b-2 border-zinc-800 text-gray-900 focus:outline-none focus:borer-rose-600"
+            placeholder="Title"
+            v-model="newPost.title"
+          />
+          <label
+            for="title"
+            class="absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm"
+            >Title</label
+          >
+        </div>
+        <div class="relative">
+          <textarea
+            autocomplete="off"
+            maxlength="350"
+            id="text"
+            :name="newPost.body"
+            type="text"
+            class="peer placeholder-transparent w-full border-b-2 border-zinc-800 text-gray-900 focus:outline-none focus:borer-rose-600"
+            placeholder="Text"
+            rows="5"
+            v-model="newPost.body"
+          />
+          <label
+            for="text"
+            class="absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm"
+          >
+            Text</label
+          >
+        </div>
+        <div class="relative">
+          <input
+            autocomplete="off"
+            id="img"
+            :name="newPost.img"
+            type="text"
+            class="peer placeholder-transparent h-10 w-full border-b-2 border-zinc-800 text-gray-900 focus:outline-none focus:borer-rose-600"
+            placeholder="Image url"
+            v-model="newPost.img"
+          />
+          <label
+            for="img"
+            class="absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm"
+          >
+            Image url</label
+          >
+        </div>
+
+        <button
+          class="bg-lime-600 text-white rounded-md px-4 py-2 self-center uppercase"
+          type="submit"
+          :class="{ 'animate-pulse bg-zinc-500': loading }"
+        >
+          {{ loading ? "Uploading post..." : "Public Post" }}
+        </button>
       </div>
     </div>
   </form>
@@ -105,11 +101,26 @@ export default {
     const blogsStore = useBlogsStore();
     const messageStore = useMessageStore();
     const newPost = ref({});
-
-    console.log(newPost.value);
+    const loading = ref(false);
 
     const handleSubmit = () => {
-      console.log(blogsStore.blogPosts);
+      loading.value = true;
+      if (!newPost.value.title) {
+        messageStore.replaceAlertMessage(
+          `Title is required value`,
+          "bg-red-600"
+        );
+        loading.value = false;
+        return;
+      } else if (!newPost.value.body) {
+        messageStore.replaceAlertMessage(
+          `Text is required value`,
+          "bg-red-600"
+        );
+        loading.value = false;
+        return;
+      }
+
       blogsStore.addNewPost({
         ...newPost.value,
         title: newPost.value.title,
@@ -121,9 +132,13 @@ export default {
         id: Date.now(),
         date: new Date(),
       });
-      console.log(blogsStore.blogPosts);
+
       messageStore.replaceAlertMessage(
-        `New post with title '${newPost.value.title}'' was succesfully upload to store`,
+        `New post with title "${
+          newPost.value.title.length >= 15
+            ? newPost.value.title.substring(0, 14) + "..."
+            : newPost.value.title
+        }" was succesfully upload to store`,
         "bg-green-600"
       );
       newPost.value = {
@@ -134,9 +149,11 @@ export default {
         id: "",
         date: "",
       };
+
+      loading.value = false;
     };
 
-    return { newPost, handleSubmit };
+    return { newPost, handleSubmit, loading };
   },
 };
 </script>
