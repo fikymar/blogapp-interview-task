@@ -16,9 +16,11 @@
           {{ blog.author ? blog.author : "Unknown author" }}
         </span>
       </p>
-      <p v-if="blog.update" class="text-sm">
-        Updated on
-        {{ blog.update ? blog.update.toLocaleString("cs-CS") : null }}
+      <p v-if="blog.update" class="text-sm italic">
+        Last Updated
+        <span class="font-medium">
+          {{ blog.update ? blog.update.toLocaleString("cs-CS") : null }}</span
+        >
       </p>
 
       <img
