@@ -1,7 +1,7 @@
 # blogapp
 
 Made with vue.js, vue-router, pinia, tailwind
-demo: https://testblogapp.netlify.app/
+##### demo: https://testblogapp.netlify.app/
 
 ## Features:
 - Create new blog post
