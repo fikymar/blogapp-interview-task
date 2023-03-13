@@ -79,13 +79,9 @@
           >
         </div>
 
-        <button
-          class="bg-lime-600 border-2 border-lime-600 hover:bg-lime-500 hover:text-zinc-600 hover:border-zinc-600 text-white rounded-md px-4 py-2 self-center uppercase mr-4 transition"
-          type="submit"
-          :class="{ 'animate-pulse bg-zinc-500': loading }"
-        >
+        <Button type="submit" :class="{ 'animate-pulse bg-zinc-500': loading }">
           {{ loading ? "Uploading post..." : "Public Post" }}
-        </button>
+        </Button>
       </div>
     </div>
   </form>
@@ -95,8 +91,11 @@
 import { useBlogsStore } from "@/store/BlogPostStore";
 import { useMessageStore } from "@/store/MessageStore";
 import { ref } from "vue";
+import Button from "@/components/Button.vue";
 
 export default {
+  components: { Button },
+
   setup() {
     const blogsStore = useBlogsStore();
     const messageStore = useMessageStore();
@@ -115,7 +114,7 @@ export default {
       } else if (!newPost.value.body) {
         messageStore.replaceAlertMessage(
           `Text is required value`,
-          "bg-red-600"
+          "bg-rose-600"
         );
         loading.value = false;
         return;

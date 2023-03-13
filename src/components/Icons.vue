@@ -10,7 +10,7 @@
         fill="none"
         viewBox="0 0 24 24"
         stroke-width="2"
-        stroke="red"
+        stroke="#e11d48"
         class="w-5 h-5"
       >
         <path
@@ -65,7 +65,7 @@ export default {
       }
       messageStore.replaceAlertMessage(
         `Post with id "${props.id}" was succesfully deleted from posts`,
-        "bg-red-500"
+        "bg-rose-600"
       );
     };
 

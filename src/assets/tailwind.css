@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 :root {
-	--primaryColor: #16a34a;
-	--textColor:rgb(37, 33, 33);
+	--primaryColor: #16a34a; /* tailwind bg-lime-600 */
+	--textColor:#3f3f46;
 }
 
 body {

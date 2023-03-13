@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="messageStore.msg"
-    class="fixed top-5 left-5 right-5 z-100 max-w-screen sm:max-w-xs text-sm text-zinc-100 rounded-md shadow-lg mb-3"
+    class="fixed top-5 left-5 right-5 z-100 max-w-screen sm:max-w-xs text-sm text-white rounded-md shadow-lg mb-3"
     :class="color"
     role="alert"
   >
@@ -11,7 +11,7 @@
       <button
         @click="deleteMessage"
         type="button"
-        class="group border-l border-l-zinc-100 pl-4 py-4 flex flex-col items-center justify-center rounded-tr-md rounded-br-md text-zinc-100"
+        class="group border-l border-l-zinc-100 pl-4 py-4 flex flex-col items-center justify-center rounded-tr-md rounded-br-md text-white"
       >
         <span class="sr-only">Close</span>
         <svg
