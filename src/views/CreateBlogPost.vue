@@ -1,5 +1,8 @@
 <template>
-  <form @submit.prevent="handleSubmit" class="w-full sm:max-w-md mx-auto">
+  <form
+    @submit.prevent="handleSubmit"
+    class="w-full sm:max-w-md mx-auto min-h-[90vh]"
+  >
     <div>
       <h1 class="text-2xl font-semibold text-center">Create new blog post</h1>
     </div>
