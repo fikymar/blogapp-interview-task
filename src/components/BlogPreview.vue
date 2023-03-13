@@ -28,7 +28,7 @@
             {{ blog.author && blog.author }}
           </p>
           <p :v-if="blog.date">
-            {{ blog.date && blog.date.toDateString() }}
+            {{ blog.date && date }}
           </p>
         </div>
       </article>
@@ -38,9 +38,16 @@
 
 <script>
 import Icons from "./Icons.vue";
+import { dateString } from "@/helpers/helpers";
+
 export default {
   props: ["blog"],
   components: { Icons },
+  setup(props) {
+    const date = dateString(props.blog.date);
+
+    return { date };
+  },
 };
 </script>
 

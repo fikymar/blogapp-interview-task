@@ -10,16 +10,15 @@
       </h1>
       <p v-if="blog.author || blog.date" class="text-sm">
         Created
-        {{
-          blog.date ? "on " + blog.date.toLocaleDateString("cs-CS") : "recently"
-        }}
+        {{ blog.date ? date : "recently" }}
         by
         <span class="font-semibold">
           {{ blog.author ? blog.author : "Unknown author" }}
         </span>
       </p>
       <p v-if="blog.update" class="text-sm">
-        Updated on {{ blog.update ? blog.update.toUTCString() : null }}
+        Updated on
+        {{ blog.update ? blog.update.toLocaleString("cs-CS") : null }}
       </p>
 
       <img
@@ -39,6 +38,7 @@
 import { useBlogsStore } from "@/store/BlogPostStore";
 import { storeToRefs } from "pinia";
 import Icons from "@/components/Icons.vue";
+import { dateString } from "@/helpers/helpers";
 
 export default {
   name: "BlogPostDetail",
@@ -48,8 +48,9 @@ export default {
     const blogsStore = useBlogsStore();
     const { getSinglePostById } = storeToRefs(blogsStore);
     const blog = getSinglePostById.value(props.id);
+    const date = dateString(blog.date);
 
-    return { blog, blogsStore };
+    return { blog, blogsStore, date };
   },
 };
 </script>

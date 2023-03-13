@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main class="min-h-[90vh]">
     <h1
       class="text-3xl font-bold uppercase text-center mb-10 tracking-wide text-zinc-600"
     >
