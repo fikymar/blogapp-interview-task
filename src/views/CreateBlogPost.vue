@@ -15,11 +15,11 @@
             autocomplete="off"
             maxlength="20"
             id="author"
-            :name="newPost.author"
+            name="author"
             type="text"
             class="peer placeholder-transparent h-10 w-full border-b-2 border-zinc-500 text-gray-900 focus:outline-none focus:border-rose-600"
             placeholder="Your name(author)"
-            v-model="newPost.author"
+            pattern=".*\S+.*"
           />
 
           <label
@@ -30,14 +30,17 @@
         </div>
         <div class="relative">
           <input
+            required
+            oninvalid="setCustomValidity('No blank spaces')"
+            oninput="setCustomValidity('')"
             autocomplete="off"
             maxlength="80"
             id="title"
-            :name="newPost.title"
+            name="title"
             type="text"
             class="peer placeholder-transparent h-10 w-full border-b-2 border-zinc-500 text-gray-900 focus:outline-none focus:border-rose-600"
             placeholder="Title"
-            v-model="newPost.title"
+            pattern=".*\S+.*"
           />
           <label
             for="title"
@@ -50,12 +53,11 @@
             autocomplete="off"
             maxlength="350"
             id="text"
-            :name="newPost.body"
+            name="body"
             type="text"
             class="peer placeholder-transparent w-full border-b-2 border-zinc-500 text-gray-900 focus:outline-none focus:border-rose-600"
             placeholder="Text"
             rows="5"
-            v-model="newPost.body"
           />
           <label
             for="text"
@@ -68,11 +70,10 @@
           <input
             autocomplete="off"
             id="img"
-            :name="newPost.img"
+            name="img"
             type="text"
             class="peer placeholder-transparent h-10 w-full border-b-2 border-zinc-500 text-gray-900 focus:outline-none focus:border-rose-600"
             placeholder="Image url"
-            v-model="newPost.img"
           />
           <label
             for="img"
@@ -105,16 +106,21 @@ export default {
     const newPost = ref({});
     const loading = ref(false);
 
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
+      console.log(e.target.value);
+      let { title, body, author, img } = Object.fromEntries(
+        new FormData(e.target)
+      );
+      console.log(title.length, body, author);
       loading.value = true;
-      if (!newPost.value.title) {
+      if (title.length < 1) {
         messageStore.replaceAlertMessage(
           `Title is required value`,
           "bg-red-600"
         );
         loading.value = false;
         return;
-      } else if (!newPost.value.body) {
+      } else if (body.length < 1) {
         messageStore.replaceAlertMessage(
           `Text is required value`,
           "bg-rose-600"
@@ -124,33 +130,26 @@ export default {
       }
 
       blogsStore.addNewPost({
-        ...newPost.value,
-        title: newPost.value.title,
-        body: newPost.value.body,
-        img: newPost.value.img
-          ? newPost.value.img
-          : "https://source.unsplash.com/random/576x384/?tech",
-        author: newPost.value.author,
+        title: title,
+        body: body,
+        img: img ? img : "https://source.unsplash.com/random/576x384/?tech",
+        author: author,
         id: Date.now(),
         date: new Date(),
       });
+      console.log(newPost.value.title);
 
       messageStore.replaceAlertMessage(
         `New post with title "${
-          newPost.value.title.length >= 15
-            ? newPost.value.title.substring(0, 14) + "..."
-            : newPost.value.title
+          title.length >= 15 ? title.substring(0, 14) + "..." : title
         }" was succesfully upload to store`,
         "bg-lime-600"
       );
-      newPost.value = {
-        title: "",
-        body: "",
-        img: "",
-        author: "",
-        id: "",
-        date: "",
-      };
+
+      title = "";
+      body = "";
+      img = "";
+      author = "";
 
       loading.value = false;
     };

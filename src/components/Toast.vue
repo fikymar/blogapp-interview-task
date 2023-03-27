@@ -1,7 +1,7 @@
 <template>
   <div
     v-if="messageStore.msg"
-    class="fixed top-5 left-5 right-5 z-100 max-w-screen sm:max-w-xs text-sm text-white rounded-md shadow-lg mb-3"
+    class="fixed top-5 left-5 right-5 z-100 max-w-screen sm:max-w-xs text-sm text-white rounded-md shadow-lg mb-3 bouncing"
     :class="color"
     role="alert"
   >

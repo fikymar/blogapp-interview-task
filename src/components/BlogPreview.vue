@@ -10,16 +10,16 @@
             v-if="blog.img"
             :src="blog.img"
             alt="blog.title"
-            class="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-800"
+            class="w-full h-full object-cover object-top group-hover:object-bottom transition-all duration-500"
           />
         </div>
         <h2
-          class="font-bold text-xl text-left line-clamp-2 group-hover:text-zinc-500 trasnition"
+          class="font-bold text-xl text-left line-clamp-2 group-hover:text-lime-700 transition"
         >
           {{ blog.title }}
         </h2>
         <p
-          class="line-clamp-3 text-left font-light text-zinc-500 group-hover:text-zinc-600 transition"
+          class="line-clamp-3 text-left font-light text-zinc-500 group-hover:text-zinc-900 transition"
         >
           {{ blog.body }}
         </p>

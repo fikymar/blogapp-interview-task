@@ -14,7 +14,7 @@
           <input
             readonly
             id="id"
-            :name="post.author"
+            name="author"
             type="text"
             class="peer placeholder-transparent h-10 w-full border-b-2 border-zinc-500 text-gray-900 focus:outline-none focus:border-rose-600"
             v-model="post.id"
@@ -30,10 +30,10 @@
           <input
             readonly
             id="id"
-            :name="date"
+            name="date"
             type="text"
             class="peer placeholder-transparent h-10 w-full border-b-2 border-zinc-500 text-gray-900 focus:outline-none focus:border-rose-600"
-            v-model="date"
+            v-model="post.date"
           />
 
           <label
@@ -47,11 +47,10 @@
             autocomplete="off"
             maxlength="20"
             id="author"
-            :name="post.author"
+            name="author"
             type="text"
             class="peer placeholder-transparent h-10 w-full border-b-2 border-zinc-500 text-gray-900 focus:outline-none focus:border-rose-600"
             placeholder="Author"
-            v-model="post.author"
           />
 
           <label
@@ -69,7 +68,7 @@
             type="text"
             class="peer placeholder-transparent h-10 w-full border-b-2 border-zinc-500 text-gray-900 focus:outline-none focus:border-rose-600"
             placeholder="Title"
-            v-model="post.title"
+            required
           />
           <label
             for="title"
@@ -82,12 +81,12 @@
             autocomplete="off"
             maxlength="350"
             id="text"
-            :name="post.body"
+            name="body"
             type="text"
             class="peer placeholder-transparent w-full border-b-2 border-zinc-500 text-gray-900 focus:outline-none focus:border-rose-600"
             placeholder="Text"
             rows="8"
-            v-model="post.body"
+            required
           />
           <label
             for="text"
@@ -100,11 +99,10 @@
           <input
             autocomplete="off"
             id="img"
-            :name="post.img"
+            name="img"
             type="text"
             class="peer placeholder-transparent h-10 w-full border-b-2 border-zinc-500 text-gray-900 focus:outline-none focus:border-rose-600"
             placeholder="Image url"
-            v-model="post.img"
           />
           <label
             for="img"
@@ -136,9 +134,16 @@ export default {
     const post = getSinglePostById.value(props.id);
     const date = post.date.toUTCString();
 
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
+      const { title, body, author, img } = Object.fromEntries(
+        new FormData(e.target)
+      );
       blogsStore.editCurrentPost({
         ...post,
+        title: title,
+        body: body,
+        author: author,
+        img: img,
         update: new Date(),
       });
 
