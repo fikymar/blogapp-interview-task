@@ -56,10 +56,22 @@
 </template>
 
 <script>
+import { useHead } from "@vueuse/head";
 import { useBlogsStore } from "@/store/BlogPostStore";
 import BlogPreview from "@/components/BlogPreview.vue";
 import { storeToRefs } from "pinia";
 import Button from "../components/Button.vue";
+
+useHead({
+  title: "BFD | Home",
+  meta: [
+    {
+      name: "Blog for developers",
+      content:
+        "Lorem ipsum dolor repudiandae fugiat nobis officia nostrum dolor ullam",
+    },
+  ],
+});
 
 export default {
   name: "HomeView",

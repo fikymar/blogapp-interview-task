@@ -19,6 +19,18 @@
 import { useBlogsStore } from "@/store/BlogPostStore";
 import BlogPreview from "../../components/BlogPreview.vue";
 import { storeToRefs } from "pinia";
+import { useHead } from "@vueuse/head";
+
+useHead({
+  title: "BFD | All Blogs",
+  meta: [
+    {
+      name: "Blogs",
+      content:
+        "Lorem ipsum dolor repudiandae fugiat nobis officia nostrum dolor ullam",
+    },
+  ],
+});
 export default {
   name: "AllBlogList",
   props: ["blog"],
