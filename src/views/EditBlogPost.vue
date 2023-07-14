@@ -122,6 +122,16 @@ import { useBlogsStore } from "@/store/BlogPostStore";
 import { useMessageStore } from "@/store/MessageStore";
 import { storeToRefs } from "pinia";
 import Button from "@/components/Button.vue";
+import { useHead } from "@vueuse/head";
+useHead({
+  title: "BFD | Edit your post",
+  meta: [
+    {
+      name: "BFD | Edit your post",
+      content: "",
+    },
+  ],
+});
 
 export default {
   name: "editBlogPost",

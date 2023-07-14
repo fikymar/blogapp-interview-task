@@ -41,6 +41,17 @@ import { useBlogsStore } from "@/store/BlogPostStore";
 import { storeToRefs } from "pinia";
 import Icons from "@/components/Icons.vue";
 import { dateString } from "@/helpers/helpers";
+import { useHead } from "@vueuse/head";
+
+useHead({
+  title: "BFD | ",
+  meta: [
+    {
+      name: "BFD | ",
+      content: "",
+    },
+  ],
+});
 
 export default {
   name: "BlogPostDetail",

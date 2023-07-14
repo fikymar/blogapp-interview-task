@@ -96,6 +96,17 @@ import { useBlogsStore } from "@/store/BlogPostStore";
 import { useMessageStore } from "@/store/MessageStore";
 import { ref } from "vue";
 import Button from "@/components/Button.vue";
+import { useHead } from "@vueuse/head";
+
+useHead({
+  title: "BFD | Create new one",
+  meta: [
+    {
+      name: "Create your post",
+      content: "Create your post",
+    },
+  ],
+});
 
 export default {
   components: { Button },

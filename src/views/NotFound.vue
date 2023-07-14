@@ -21,5 +21,16 @@
 </template>
 
 <script>
+import { useHead } from "@vueuse/head";
+useHead({
+  title: "BFD | 404",
+  meta: [
+    {
+      name: "Blog for developers 404",
+      content: "Not exist",
+    },
+  ],
+});
+
 export default {};
 </script>
